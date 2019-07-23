@@ -2,14 +2,12 @@ i {
    cursor: pointer; 
 }
 
-
-
-.fas::after {
+.fas {
     content: '\f005';
     color: #fd0;
 }
 
-.far::before {
+.far {
     content: '\f005';
-    color: #777;
+    color: #fd0;
 }
