@@ -13,7 +13,6 @@ function relleno(e) {
     document.getElementById("estrella" + i).classList.add("fas");
     document.getElementById(e).style.color = "#FD0";
     vacio = 0;
-
   }
 }
 function vaciado(e) {
