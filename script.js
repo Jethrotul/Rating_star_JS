@@ -1,33 +1,35 @@
-var vacio = 0;
-function relleno(e) {
-  if (vacio == 1) {
-    for (var i = 1; i < 6; i++) {
-      document.getElementById("estrella" + i).classList.remove("fas");
-      document.getElementById("estrella" + i).classList.add("far");
-      document.getElementById("estrella" + i).style.color = "#FD0";
-      vacio = 0;
+let list = document.querySelectorAll(".star");
+for (var i = 0; i < list.length; i++) {
+  list[i].addEventListener("click", fijar);
+  list[i].addEventListener("mouseover", rellenar);
+  list[i].addEventListener("mouseout", vaciar);
+}
+let fijacion = 0;
+function fijar() {
+  if (fijacion == 0) {
+    return (fijacion = 1);
+  } else if (fijacion == 1) {
+    for (let i = 1; i < 6; i++) {
+      document.getElementById("star" + i).classList.remove("fas");
+      document.getElementById("star" + i).classList.add("far");
     }
-  }
-  for (var i = 1; i <= e.substr(8, 8); i++) {
-    document.getElementById("estrella" + i).classList.remove("far");
-    document.getElementById("estrella" + i).classList.add("fas");
-    document.getElementById(e).style.color = "#FD0";
-    vacio = 0;
+    return (fijacion = 0);
   }
 }
-function vaciado(e) {
-  if (vacio == 0) {
-    for (var i = 1; i <= e.substr(8, 8); i++) {
-      document.getElementById("estrella" + i).classList.remove("fas");
-      document.getElementById("estrella" + i).classList.add("far");
+function rellenar() {
+  if (fijacion == 0) {
+    for (let i = 1; i <= this.id.substr(4, 4); i++) {
+      document.getElementById("star" + i).classList.remove("far");
+      document.getElementById("star" + i).classList.add("fas");
+      fijacion = false;
     }
   }
 }
-function fijado(e) {
-  for (var i = 1; i <= e.substr(8, 8); i++) {
-    document.getElementById("estrella" + i).classList.remove("far");
-    document.getElementById("estrella" + i).classList.add("fas");
-    document.getElementById("estrella" + i).style.color = "#F95";
-    vacio = 1;
+function vaciar() {
+  if (fijacion == 0) {
+    for (let i = 1; i <= this.id.substr(4, 4); i++) {
+      document.getElementById("star" + i).classList.remove("fas");
+      document.getElementById("star" + i).classList.add("far");
+    }
   }
 }
