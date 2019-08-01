@@ -1,14 +1,16 @@
 let list = document.querySelectorAll(".star");
 for (var i = 0; i < list.length; i++) {
-  list[i].addEventListener("click", fijar);
   list[i].addEventListener("mouseover", rellenar);
   list[i].addEventListener("mouseout", vaciar);
 }
 let fijacion = 0;
+let bb = document.activeElement.tagName;
+window.addEventListener("click", fijar);
+
 function fijar() {
   if (fijacion == 0) {
     return (fijacion = 1);
-  } else if (fijacion == 1) {
+  } else if (fijacion == 1 && bb == "BODY") {
     for (let i = 1; i < 6; i++) {
       document.getElementById("star" + i).classList.remove("fas");
       document.getElementById("star" + i).classList.add("far");
